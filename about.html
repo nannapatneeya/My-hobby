@@ -3,12 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Hobby – About</title>
   <title>My Hobby | About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+<body class="about-page">
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="logo" href="home.html">My Hobby</a>
+      <ul class="nav-links">
+        <li><a href="home.html">𝐻𝑜𝓂𝑒</a></li>
+        <li><a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a></li>
+        <li><a href="about.html" aria-current="page">𝒜𝒷𝑜𝓾𝓉</a></li>
 <body>
   <header class="site-header compact-header">
     <nav class="top-nav" aria-label="Main navigation">
@@ -21,6 +30,9 @@
       </ul>
     </nav>
 
+    <section class="hero panel compact">
+      <h1>About My Movie Hobby</h1>
+      <p>Movies and series are more than entertainment — they are comfort, inspiration, and a way to explore different emotions and cultures.</p>
     <section class="panel hero compact-hero">
       <h1>About This Hobby Project</h1>
       <p>I love stories that are cozy, magical, and easy to rewatch.</p>
@@ -28,6 +40,84 @@
   </header>
 
   <main>
+    <section class="section dashboard" aria-label="Movie hobby highlights">
+      <article class="widget panel">
+        <div class="icon">🎬</div>
+        <h3>My Hobby</h3>
+        <p class="widget-value">Movies</p>
+        <p>Watching movies helps me relax and enjoy my free time.</p>
+      </article>
+
+      <article class="widget panel">
+        <div class="icon">🌙</div>
+        <h3>Best Time</h3>
+        <p class="widget-value">Evening</p>
+        <p>I enjoy watching movies at night after a long day.</p>
+      </article>
+
+      <article class="widget panel">
+        <div class="icon">💙</div>
+        <h3>Favorite Genre</h3>
+        <p class="widget-value">Romcom</p>
+        <p>Romantic and comedy stories are my favorite.</p>
+      </article>
+
+      <article class="widget panel widget-large">
+        <h3>Why I Love Watching Movies</h3>
+        <p>Movies help me relax, understand emotions, and escape stress.</p>
+        <ul>
+          <li>Emotional connection and storytelling</li>
+          <li>Exploring different cultures and perspectives</li>
+          <li>Finding daily comfort and inspiration</li>
+        </ul>
+      </article>
+
+      <article class="widget panel">
+        <div class="icon">🍿</div>
+        <h3>Best Experience</h3>
+        <p class="widget-value">Comfort</p>
+        <p>A quiet place and good subtitles make it better.</p>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Streaming Platforms</h2>
+      <div class="panel table-panel">
+        <div class="table-wrap">
+          <table>
+            <caption>Where I usually watch my favorite stories</caption>
+            <thead>
+              <tr>
+                <th scope="col">Platform</th>
+                <th scope="col">Logo</th>
+                <th scope="col">What I Watch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Netflix</td><td><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix logo" class="platform-logo"></td><td>K-dramas, romcom movies</td></tr>
+              <tr><td>iQIYI</td><td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/IQIYI_logo.svg/512px-IQIYI_logo.svg.png" alt="iQIYI logo" class="platform-logo"></td><td>C-dramas and fantasy series</td></tr>
+              <tr><td>YouTube</td><td><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube logo" class="platform-logo"></td><td>Trailers and behind-the-scenes clips</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><th scope="row" colspan="2">Favorite overall</th><td>Netflix for variety + comfort rewatches</td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="media" class="section">
+      <h2 class="section-title">Multimedia Corner</h2>
+      <div class="media-grid">
+        <figure class="panel media-card">
+          <img src="https://i.pinimg.com/736x/85/df/51/85df51d75e9d0ed5b02229a37e86c8e2.jpg" alt="Aesthetic movie night setup">
+          <figcaption>My movie-night mood board and favorite vibe.</figcaption>
+        </figure>
+        <figure class="panel media-card">
+          <iframe src="https://www.youtube.com/embed/VyHV0BRtdxo" title="Harry Potter trailer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <figcaption>A trailer that always makes me excited to rewatch.</figcaption>
+        </figure>
+        <figure class="panel media-card">
     <section id="media" class="section panel" aria-labelledby="media-title">
       <h2 id="media-title">Multimedia Corner</h2>
       <div class="media-layout">
@@ -52,11 +142,43 @@
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
+          <figcaption>Focus music while writing my movie notes.</figcaption>
           <figcaption>Background listening while I write reviews (sample royalty-free audio).</figcaption>
         </figure>
       </div>
     </section>
 
+    <section class="section">
+      <article class="panel recommend-panel">
+        <h2 class="section-title">Recommend a Movie For Me</h2>
+        <p>I’m always looking for good recommendations, especially favorite romcoms or dramas!</p>
+
+        <form id="recommend-form" class="recommend-form" novalidate>
+          <div class="form-row">
+            <label for="title">Movie/Series Title</label>
+            <input type="text" id="title" placeholder="e.g. Hometown Cha-Cha-Cha" required>
+          </div>
+
+          <div class="form-row">
+            <label for="type">Category</label>
+            <select id="type" required>
+              <option value="">Select category...</option>
+              <option value="movie">Movie</option>
+              <option value="cdrama">C-Drama</option>
+              <option value="kdrama">K-Drama</option>
+              <option value="series">International Series</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="reason">Why do you recommend it?</label>
+            <textarea id="reason" rows="4" placeholder="Tell me about the story..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Recommendation</button>
+          <p id="thank-you-msg" class="feedback" aria-live="polite"></p>
+        </form>
+      </article>
     <section id="recommend-form" class="section panel" aria-labelledby="form-title">
       <h2 id="form-title">Recommend Something to Watch</h2>
       <form class="recommend-form" novalidate>
@@ -99,6 +221,8 @@
   </main>
 
   <footer class="site-footer">
+    <p>Created by Nannapat Jaroenteerawong | 2025</p>
+    <p><a href="home.html">𝐻𝑜𝓂𝑒</a> · <a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a> · <a href="about.html">𝒜𝒷𝑜𝓾𝓉</a></p>
     <p>Thanks for sharing your recommendations!</p>
   </footer>
 
