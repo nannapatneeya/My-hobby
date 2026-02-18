@@ -1,380 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Movie Reviews</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --blue-light: #BCD2E8;
-  --blue-mid: #91BAD6;
-  --blue-dark: #528AAE;
-  --nav-bg: #1E3F66; 
-  --text-dark: #0F2033;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.3);
-  --shadow: 0 12px 40px rgba(0,0,0,0.15);
-  --radius: 20px;
-  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  font-family:'Roboto', sans-serif;
-  color: var(--text-dark);
-  line-height:1.6;
-  min-height: 100vh;
-}
-
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background: url('https://i.pinimg.com/1200x/80/5f/76/805f76689aa8612fb2c786bfcda09c6e.jpg') no-repeat center center fixed;
-  background-size: cover;
-  filter: brightness(0.7);
-}
-
-
-nav {
-  background: rgba(30, 63, 102, 0.9);
-  backdrop-filter: blur(10px);
-  padding:1.2rem 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  border-bottom: 1px solid var(--glass-border);
-}
-
-nav .logo {
-  font-family:'Cinzel', serif;
-  font-size:1.8rem;
-  font-weight: 700;
-  color:white;
-}
-
-nav div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-nav a {
-  color: rgba(255,255,255,0.8);
-  text-decoration:none;
-  margin-left:2rem;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-nav a:hover { color: white; transform: translateY(-2px); }
-
-
-.page-header {
-  max-width:1100px;
-  margin:4rem auto 2rem;
-  padding:5rem 2rem;
-  background: linear-gradient(135deg, rgba(145, 186, 214, 0.9), rgba(82, 138, 174, 0.9));
-  backdrop-filter: blur(5px);
-  color:white;
-  text-align:center;
-  border-radius:var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--glass-border);
-  width: 90%; 
-}
-
-.page-header h1 {
-  font-family:'Cinzel', serif;
-  font-size:3.2rem;
-  margin-bottom:1rem;
-}
-
-
-.review-container {
-  display: grid;
-  
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.review-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--glass-border);
-}
-
-.poster-link {
-  display: block;
-  width: 100%;
-  height: 450px;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none;
-}
-
-.poster-link img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.poster-link::after {
-  content: "▶ Watch Teaser";
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(30, 63, 102, 0.8);
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 50px;
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
-  opacity: 0;
-  transition: var(--transition);
-}
-
-.review-card:hover .poster-link img {
-  transform: scale(1.1);
-}
-
-.review-card:hover .poster-link::after {
-  opacity: 1;
-}
-
-.review-content {
-  padding: 1.5rem;
-  flex:1;
-  display:flex;
-  flex-direction: column;
-}
-
-.review-content h3 {
-  font-family:'Cinzel', serif;
-  font-size:1.6rem;
-  color: var(--nav-bg);
-  margin-bottom: 0.7rem;
-}
-
-.full-review {
-  border-top: 1px solid rgba(0,0,0,0.1);
-  padding-top: 1rem;
-  margin-top: 0.5rem;
-  font-style: italic;
-  color: #555;
-}
-
-.read-more {
-  background: var(--nav-bg);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
-  cursor: pointer;
-  align-self: start;
-  margin-top: auto;
-  transition: var(--transition);
-}
-
-.read-more:hover { background: var(--blue-dark); transform: scale(1.05); }
-
-
-footer {
-  background: rgba(30, 63, 102, 0.8);
-  backdrop-filter: blur(10px);
-  color:white;
-  text-align:center;
-  padding:3rem 1rem;
-  margin-top:4rem;
-}
-
-footer a {
-  color:var(--blue-light);
-  text-decoration: none;
-  margin:0 .5rem;
-}
-
-  
-
-
-@media (max-width: 992px) {
-  .page-header { padding: 3rem 1.5rem; margin-top: 2rem; }
-  .page-header h1 { font-size: 2.5rem; }
-}
-
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column; 
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  nav a {
-    margin: 0.5rem 1rem; 
-  }
-
-  .page-header h1 { font-size: 2rem; }
-  
-  .poster-link {
-    height: 350px; 
-  }
-
-  .review-container {
-    gap: 1.5rem;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .page-header h1 { font-size: 1.6rem; }
-  .page-header p { font-size: 0.9rem; }
-  
-  .review-content h3 { font-size: 1.4rem; }
-  
-  .read-more {
-    width: 100%; 
-    text-align: center;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Favorite Movies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="reviews-page">
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="logo" href="home.html">My Hobby</a>
+      <ul class="nav-links">
+        <li><a href="home.html">𝐻𝑜𝓂𝑒</a></li>
+        <li><a href="reviews.html" aria-current="page">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a></li>
+        <li><a href="about.html">𝒜𝒷𝑜𝓊𝓉</a></li>
+        <li><a href="home.html#game">Game</a></li>
+      </ul>
+    </nav>
 
-<nav>
-  <div class="logo">My Hobby</div>
-  <div>
-   <a href="home.html">𝐻𝑜𝓂𝑒</a>
-        <a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a>
-        <a href="about.html">𝒜𝒷𝑜𝓾𝓉</a>
-  </div>
-</nav>
+    <section class="hero panel compact">
+      <h1>My Favorite Movies &amp; Series</h1>
+      <p>Discover the stories that have made me laugh, cry, and find inspiration. Click a poster to watch the teaser.</p>
+    </section>
+  </header>
 
-<header class="page-header">
-  <h1>My Favorite Movies & Series</h1>
-  <p>Discover the stories that have made me laugh, cry, and find inspiration. Click a poster to watch the teaser.</p>
-</header>
+  <main>
+    <section class="section" aria-labelledby="table-title">
+      <h2 id="table-title" class="section-title">Review Summary Table</h2>
+      <div class="panel table-panel">
+        <div class="table-wrap">
+          <table>
+            <caption>My current favorites and what I love about each one</caption>
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Type</th>
+                <th scope="col">Mood</th>
+                <th scope="col">Personal Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>The Best Thing</td><td>Series</td><td>Comfort / Stress-relief</td><td>9.2/10</td></tr>
+              <tr><td>Harry Potter</td><td>Movie Series</td><td>Magical / Family</td><td>10/10</td></tr>
+              <tr><td>Business Proposal</td><td>K-Drama</td><td>Funny / Sweet</td><td>9/10</td></tr>
+              <tr><td>The Devil Wears Prada</td><td>Movie</td><td>Motivating / Stylish</td><td>8.8/10</td></tr>
+              <tr><td>The First Frost</td><td>C-Drama</td><td>Emotional Rollercoaster</td><td>9.1/10</td></tr>
+              <tr><td>Mr. Queen</td><td>K-Drama</td><td>Chaotic Comedy</td><td>9.4/10</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><th scope="row" colspan="3">Average Score</th><td>9.25/10</td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
 
-<div class="review-container">
+    <section class="section review-container" aria-label="Detailed review cards">
+      <article class="review-card panel">
+        <a href="https://youtu.be/ozzqPJ4QPjY?si=bIDO93oYv-ThvLFg" target="_blank" rel="noopener" class="poster-link">
+          <img src="https://i.pinimg.com/736x/38/d3/2c/38d32c172d525e03932af594503e2bec.jpg" alt="The Best Thing poster">
+        </a>
+        <div class="review-content">
+          <h3>The Best Thing</h3>
+          <p><strong>𝑻𝒉𝒆 𝑩𝒂𝒄𝒌𝒔𝒕𝒐𝒓𝒚:</strong> TikTok made me do it. After seeing a few edits and knowing Zhang Linghe was the lead, I was sold.</p>
+          <p class="full-review"><strong>Why It’s Personal:</strong> This series became my ultimate stress-reliever. It’s the kind of show that makes you smile without even realizing it.</p>
+          <button class="read-more btn btn-secondary" type="button">Read More</button>
+        </div>
+      </article>
 
-  <div class="review-card">
-    <a href="https://youtu.be/ozzqPJ4QPjY?si=bIDO93oYv-ThvLFg" target="_blank" class="poster-link">
-      <img src="https://i.pinimg.com/736x/38/d3/2c/38d32c172d525e03932af594503e2bec.jpg" alt="The Best thing">
-    </a>
-    <div class="review-content">
-      <h3>The Best Thing</h3>
-      <p><strong>𝑻𝒉𝒆 𝑩𝒂𝒄𝒌𝒔𝒕𝒐𝒓𝒚:</strong> TikTok made me do it. After seeing a few edits and knowing Zhang Linghe was the lead, I was sold.</p>
-      <p class="full-review" style="display:none;"><strong>Why It’s Personal:</strong> This series became my ultimate stress-reliever. It’s the kind of show that makes you smile without even realizing it.</p>
-      <button class="read-more">Read More</button>
-    </div>
-  </div>
+      <article class="review-card panel">
+        <a href="https://www.youtube.com/watch?v=VyHV0BRtdxo" target="_blank" rel="noopener" class="poster-link">
+          <img src="https://i.pinimg.com/1200x/72/35/7c/72357ca6662af8f4ebaf764661858f44.jpg" alt="Harry Potter poster">
+        </a>
+        <div class="review-content">
+          <h3>Harry Potter</h3>
+          <p><strong>𝐓𝐡𝐞 𝐁𝐚𝐜𝐤𝐬𝐭𝐨𝐫𝐲:</strong> I’ve been watching Harry Potter since I was 7. My dad is a total Potterhead, so he’s the one who introduced me.</p>
+          <p class="full-review"><strong>Why It’s Personal:</strong> It’s a hobby I share with my dad. I can watch it again and again and never get bored of the magic world.</p>
+          <button class="read-more btn btn-secondary" type="button">Read More</button>
+        </div>
+      </article>
 
-  <div class="review-card">
-    <a href="https://www.youtube.com/watch?v=VyHV0BRtdxo" target="_blank" class="poster-link">
-      <img src="https://i.pinimg.com/1200x/72/35/7c/72357ca6662af8f4ebaf764661858f44.jpg" alt="Harry potter">
-    </a>
-    <div class="review-content">
-      <h3>Harry Potter</h3>
-      <p><strong>𝐓𝐡𝐞 𝐁𝐚𝐜𝐤𝐬𝐭𝐨𝐫𝐲:</strong> I’ve been watching Harry Potter since I was 7. My dad is a total Potterhead, so he’s the one who introduced me.</p>
-      <p class="full-review" style="display:none;"><strong>Why It’s Personal:</strong> It’s a hobby I share with my dad. I can watch it again and again and never get bored of the magic world.</p>
-      <button class="read-more">Read More</button>
-    </div>
-  </div>
+      <article class="review-card panel">
+        <a href="https://youtu.be/M-PHcxPyasA?si=MPd_yaAmJOb9R8_G" target="_blank" rel="noopener" class="poster-link">
+          <img src="https://i.pinimg.com/736x/57/82/26/5782267615795968f78e3727bb705ae7.jpg" alt="Business Proposal poster">
+        </a>
+        <div class="review-content">
+          <h3>Business Proposal</h3>
+          <p><strong>𝐓𝐡𝐞 𝐁𝐚𝐜𝐤𝐬𝐭𝐨𝐫𝐲:</strong> I read the Webtoon version first. When I heard it was being adapted, I couldn't wait to see the characters come to life.</p>
+          <p class="full-review"><strong>Why It’s Personal:</strong> A perfect romcom. It’s not tense or stressful—just funny and sweet. It makes me happy every time I watch it.</p>
+          <button class="read-more btn btn-secondary" type="button">Read More</button>
+        </div>
+      </article>
 
-  <div class="review-card">
-    <a href="https://youtu.be/M-PHcxPyasA?si=MPd_yaAmJOb9R8_G" target="_blank" class="poster-link">
-      <img src="https://i.pinimg.com/736x/57/82/26/5782267615795968f78e3727bb705ae7.jpg" alt="Business Proposal">
-    </a>
-    <div class="review-content">
-      <h3>Business Proposal</h3>
-      <p><strong>𝐓𝐡𝐞 𝐁𝐚𝐜𝐤𝐬𝐭𝐨𝐫𝐲:</strong> I read the Webtoon version first. When I heard it was being adapted, I couldn't wait to see the characters come to life.</p>
-      <p class="full-review" style="display:none;"><strong>Why It’s Personal:</strong> A perfect romcom. It’s not tense or stressful—just funny and sweet. It makes me happy every time I watch it.</p>
-      <button class="read-more">Read More</button>
-    </div>
-  </div>
+      <article class="review-card panel">
+        <a href="https://www.youtube.com/watch?v=6ZOZwUQKu3E" target="_blank" rel="noopener" class="poster-link">
+          <img src="https://i.pinimg.com/1200x/f5/da/ac/f5daaceac2ab215b32c96c8bd3edd337.jpg" alt="The Devil Wears Prada poster">
+        </a>
+        <div class="review-content">
+          <h3>The Devil Wears Prada</h3>
+          <p><strong>𝐓𝐡𝐞 𝐁𝐚𝐜𝐤𝐬𝐭𝐨𝐫𝐲:</strong> Even though it was released before I was born, I kept seeing iconic clips and outfit inspiration all over social media.</p>
+          <p class="full-review"><strong>Why It’s Personal:</strong> I love the "girl boss" energy and the outfits. Perfect for when I’m feeling ambitious!</p>
+          <button class="read-more btn btn-secondary" type="button">Read More</button>
+        </div>
+      </article>
 
-  <div class="review-card">
-    <a href="https://www.youtube.com/watch?v=6ZOZwUQKu3E" target="_blank" class="poster-link">
-      <img src="https://i.pinimg.com/1200x/f5/da/ac/f5daaceac2ab215b32c96c8bd3edd337.jpg" alt="Devil Wears Prada">
-    </a>
-    <div class="review-content">
-      <h3>The Devil Wears Prada</h3>
-      <p><strong>𝐓𝐡𝐞 𝐁𝐚𝐜𝐤𝐬𝐭𝐨𝐫𝐲:</strong> Even though it was released before I was born, I kept seeing iconic clips and outfit inspiration all over social media.</p>
-      <p class="full-review" style="display:none;"><strong>Why It’s Personal:</strong> I love the "girl boss" energy and the outfits. Perfect for when I’m feeling ambitious!</p>
-      <button class="read-more">Read More</button>
-    </div>
-  </div>
+      <article class="review-card panel">
+        <a href="https://youtu.be/am6kaxykZlE?si=I5sJzAXLl7DKPYmF" target="_blank" rel="noopener" class="poster-link">
+          <img src="https://i.pinimg.com/736x/3b/19/36/3b19369d59c6a5be00aea04c789fb703.jpg" alt="The First Frost poster">
+        </a>
+        <div class="review-content">
+          <h3>The First Frost</h3>
+          <p><strong>𝐓𝐡𝐞 𝐁𝐚𝒄𝒌𝒔𝒕𝒐𝒓𝒚:</strong> My friend recommended this since I knew the characters from Hidden Love. I was curious about Sang Yan’s own story.</p>
+          <p class="full-review"><strong>Why It’s Personal:</strong> A total emotional rollercoaster. It balances drama, romance, and comedy perfectly.</p>
+          <button class="read-more btn btn-secondary" type="button">Read More</button>
+        </div>
+      </article>
 
-  <div class="review-card">
-    <a href="https://youtu.be/am6kaxykZlE?si=I5sJzAXLl7DKPYmF" target="_blank" class="poster-link">
-      <img src="https://i.pinimg.com/736x/3b/19/36/3b19369d59c6a5be00aea04c789fb703.jpg" alt="First Frost">
-    </a>
-    <div class="review-content">
-      <h3>The First Frost</h3>
-      <p><strong>𝐓𝐡𝐞 𝐁𝐚𝐜𝒌𝒔𝒕𝒐𝒓𝒚:</strong> My friend recommended this since I knew the characters from Hidden Love. I was curious about Sang Yan’s own story.</p>
-      <p class="full-review" style="display:none;"><strong>Why It’s Personal:</strong> A total emotional rollercoaster. It balances drama, romance, and comedy perfectly.</p>
-      <button class="read-more">Read More</button>
-    </div>
-  </div>
+      <article class="review-card panel">
+        <a href="https://youtu.be/H1vplUsGDoI?si=bQbEY06zSm0xYFBg" target="_blank" rel="noopener" class="poster-link">
+          <img src="https://i.pinimg.com/736x/ba/46/84/ba46845241cb8db895f8dddb94f6bd3d.jpg" alt="Mr. Queen poster">
+        </a>
+        <div class="review-content">
+          <h3>Mr. Queen</h3>
+          <p><strong>𝐓𝐡𝐞 𝐁𝐚𝐜𝐤𝐬𝐭𝐨𝐫𝐲:</strong> I was looking for something "unhinged." A modern chef in the body of a Joseon Queen sounded perfectly chaotic.</p>
+          <p class="full-review"><strong>Why It’s Personal:</strong> Hands-down the funniest drama ever. It’s bold, hilarious, and impossible not to laugh at.</p>
+          <button class="read-more btn btn-secondary" type="button">Read More</button>
+        </div>
+      </article>
+    </section>
+  </main>
 
-  <div class="review-card">
-    <a href="https://youtu.be/H1vplUsGDoI?si=bQbEY06zSm0xYFBg" target="_blank" class="poster-link">
-      <img src="https://i.pinimg.com/736x/ba/46/84/ba46845241cb8db895f8dddb94f6bd3d.jpg" alt="Mr Queen">
-    </a>
-    <div class="review-content">
-      <h3>Mr. Queen</h3>
-      <p><strong>𝐓𝐡𝐞 𝐁𝐚𝐜𝐤𝐬𝐭𝐨𝐫𝐲:</strong> I was looking for something "unhinged." A modern chef in the body of a Joseon Queen sounded perfectly chaotic.</p>
-      <p class="full-review" style="display:none;"><strong>Why It’s Personal:</strong> Hands-down the funniest drama ever. It’s bold, hilarious, and impossible not to laugh at.</p>
-      <button class="read-more">Read More</button>
-    </div>
-  </div>
+  <footer class="site-footer">
+    <p>Created by Nannapat Jaroenteerawong | 2025</p>
+    <p><a href="home.html">Home</a> | <a href="reviews.html">Reviews</a> | <a href="about.html">About</a></p>
+  </footer>
 
-</div>
-
-<footer>
-  <p>Created by Nannapat Jaroenteerawong | 2025</p>
-  <p>
-    <a href="home.html">Home</a> |
-    <a href="reviews.html">Reviews</a> |
-    <a href="about.html">About</a>
-  </p>
-</footer>
-
-<script>
-  const buttons = document.querySelectorAll('.read-more');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const fullReview = button.previousElementSibling;
-      if(fullReview.style.display === 'none' || fullReview.style.display === '') {
-        fullReview.style.display = 'block';
-        button.textContent = 'Show Less';
-      } else {
-        fullReview.style.display = 'none';
-        button.textContent = 'Read More';
-      }
-    });
-  });
-</script>
-
+  <script src="script.js" defer></script>
 </body>
 </html>
