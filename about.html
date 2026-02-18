@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Hobby – About</title>
+  <title>My Hobby | About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -17,6 +18,14 @@
         <li><a href="home.html">𝐻𝑜𝓂𝑒</a></li>
         <li><a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a></li>
         <li><a href="about.html" aria-current="page">𝒜𝒷𝑜𝓾𝓉</a></li>
+<body>
+  <header class="site-header compact-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="logo" href="home.html">My Hobby</a>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="home.html#game">Game</a></li>
       </ul>
     </nav>
@@ -24,6 +33,9 @@
     <section class="hero panel compact">
       <h1>About My Movie Hobby</h1>
       <p>Movies and series are more than entertainment — they are comfort, inspiration, and a way to explore different emotions and cultures.</p>
+    <section class="panel hero compact-hero">
+      <h1>About This Hobby Project</h1>
+      <p>I love stories that are cozy, magical, and easy to rewatch.</p>
     </section>
   </header>
 
@@ -106,11 +118,32 @@
           <figcaption>A trailer that always makes me excited to rewatch.</figcaption>
         </figure>
         <figure class="panel media-card">
+    <section id="media" class="section panel" aria-labelledby="media-title">
+      <h2 id="media-title">Multimedia Corner</h2>
+      <div class="media-layout">
+        <figure class="media-block">
+          <img src="https://i.pinimg.com/736x/38/d3/2c/38d32c172d525e03932af594503e2bec.jpg" alt="Poster artwork for The Best Thing">
+          <figcaption>One of my latest comfort series posters.</figcaption>
+        </figure>
+
+        <figure class="media-block">
+          <iframe
+            src="https://www.youtube.com/embed/VyHV0BRtdxo"
+            title="Harry Potter trailer"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <figcaption>Trailer clip: a classic favorite I can rewatch endlessly.</figcaption>
+        </figure>
+
+        <figure class="media-block">
           <audio controls>
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
           <figcaption>Focus music while writing my movie notes.</figcaption>
+          <figcaption>Background listening while I write reviews (sample royalty-free audio).</figcaption>
         </figure>
       </div>
     </section>
@@ -146,12 +179,51 @@
           <p id="thank-you-msg" class="feedback" aria-live="polite"></p>
         </form>
       </article>
+    <section id="recommend-form" class="section panel" aria-labelledby="form-title">
+      <h2 id="form-title">Recommend Something to Watch</h2>
+      <form class="recommend-form" novalidate>
+        <div class="form-row">
+          <label for="name">Your Name</label>
+          <input id="name" name="name" type="text" placeholder="e.g., Alex" required minlength="2">
+        </div>
+
+        <div class="form-row">
+          <label for="title">Movie/Series Title</label>
+          <input id="title" name="title" type="text" placeholder="What should I watch next?" required>
+        </div>
+
+        <div class="form-row">
+          <label for="genre">Genre</label>
+          <select id="genre" name="genre" required>
+            <option value="">Choose one...</option>
+            <option>Fantasy</option>
+            <option>Romcom</option>
+            <option>Drama</option>
+            <option>Thriller</option>
+            <option>Comedy</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="score">How strong is your recommendation? (1-10)</label>
+          <input id="score" name="score" type="number" min="1" max="10" placeholder="10" required>
+        </div>
+
+        <div class="form-row">
+          <label for="reason">Why should I watch it?</label>
+          <textarea id="reason" name="reason" rows="4" placeholder="Tell me what makes it special..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Recommendation</button>
+        <p id="form-feedback" class="feedback" role="status" aria-live="polite"></p>
+      </form>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>Created by Nannapat Jaroenteerawong | 2025</p>
     <p><a href="home.html">𝐻𝑜𝓂𝑒</a> · <a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a> · <a href="about.html">𝒜𝒷𝑜𝓾𝓉</a></p>
+    <p>Thanks for sharing your recommendations!</p>
   </footer>
 
   <script src="script.js" defer></script>

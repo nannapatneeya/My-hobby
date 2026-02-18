@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Favorite Movies</title>
+  <title>My Hobby | Reviews</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -17,6 +18,14 @@
         <li><a href="home.html">𝐻𝑜𝓂𝑒</a></li>
         <li><a href="reviews.html" aria-current="page">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a></li>
         <li><a href="about.html">𝒜𝒷𝑜𝓊𝓉</a></li>
+<body>
+  <header class="site-header compact-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="logo" href="home.html">My Hobby</a>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="reviews.html" aria-current="page">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="home.html#game">Game</a></li>
       </ul>
     </nav>
@@ -24,6 +33,9 @@
     <section class="hero panel compact">
       <h1>My Favorite Movies &amp; Series</h1>
       <p>Discover the stories that have made me laugh, cry, and find inspiration. Click a poster to watch the teaser.</p>
+    <section class="panel hero compact-hero">
+      <h1>Movie & Series Reviews</h1>
+      <p>Poster highlights, quick ratings, and a clean comparison table.</p>
     </section>
   </header>
 
@@ -130,6 +142,76 @@
           <button class="read-more btn btn-secondary" type="button">Read More</button>
         </div>
       </article>
+    <section class="section panel" aria-labelledby="table-title">
+      <h2 id="table-title">My Top Picks Table</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Favorites ranked by rewatch value and mood impact</caption>
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Type</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Harry Potter</td>
+              <td>Movie Series</td>
+              <td>Fantasy</td>
+              <td>10/10</td>
+              <td>Family movie nights</td>
+            </tr>
+            <tr>
+              <td>Business Proposal</td>
+              <td>K-Drama</td>
+              <td>Romcom</td>
+              <td>9/10</td>
+              <td>Stress relief</td>
+            </tr>
+            <tr>
+              <td>The Devil Wears Prada</td>
+              <td>Movie</td>
+              <td>Comedy/Drama</td>
+              <td>8.5/10</td>
+              <td>Fashion inspiration</td>
+            </tr>
+            <tr>
+              <td>The Best Thing</td>
+              <td>Series</td>
+              <td>Drama</td>
+              <td>9/10</td>
+              <td>Easy binge watch</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="3">Average Rating</th>
+              <td colspan="2">9.1/10</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section class="section panel" aria-labelledby="cards-title">
+      <h2 id="cards-title">Poster Highlights</h2>
+      <div class="card-grid reviews-grid">
+        <article class="card media-card">
+          <img src="https://i.pinimg.com/1200x/72/35/7c/72357ca6662af8f4ebaf764661858f44.jpg" alt="Harry Potter poster">
+          <h3>Harry Potter</h3>
+          <p>Comfort movie magic that never gets old.</p>
+          <a class="text-link" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=VyHV0BRtdxo">Watch trailer →</a>
+        </article>
+        <article class="card media-card">
+          <img src="https://i.pinimg.com/736x/57/82/26/5782267615795968f78e3727bb705ae7.jpg" alt="Business Proposal poster">
+          <h3>Business Proposal</h3>
+          <p>A feel-good romcom when I need a happy mood.</p>
+          <a class="text-link" target="_blank" rel="noopener" href="https://youtu.be/M-PHcxPyasA?si=MPd_yaAmJOb9R8_G">Watch trailer →</a>
+        </article>
+      </div>
     </section>
   </main>
 
@@ -139,5 +221,7 @@
   </footer>
 
   <script src="script.js" defer></script>
+    <p>Thanks for checking out my review list.</p>
+  </footer>
 </body>
 </html>

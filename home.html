@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Hobby – Home</title>
+  <title>My Hobby | Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="home-page">
+<body>
   <header class="site-header">
     <nav class="top-nav" aria-label="Main navigation">
       <a class="logo" href="home.html">My Hobby</a>
@@ -17,6 +19,9 @@
         <li><a href="home.html" aria-current="page">𝐻𝑜𝓂𝑒</a></li>
         <li><a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a></li>
         <li><a href="about.html">𝒜𝒷𝑜𝓊𝓉</a></li>
+        <li><a href="home.html" aria-current="page">Home</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="#game">Game</a></li>
       </ul>
     </nav>
@@ -27,6 +32,14 @@
       <div class="button-row">
         <a class="btn btn-primary" href="reviews.html">My Reviews</a>
         <a class="btn btn-secondary" href="about.html">More About Me</a>
+      <h1>Movie Nights Are My Favorite Hobby</h1>
+      <p>
+        Welcome to my upgraded project! Explore my review table, favorite media picks,
+        and play a mini game inspired by my love for stories.
+      </p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="reviews.html">Browse Reviews</a>
+        <a class="btn btn-secondary" href="about.html">Leave a Recommendation</a>
       </div>
     </section>
   </header>
@@ -49,6 +62,23 @@
           <h3>Emotional Journey</h3>
           <p>Stories and characters feel like friends I grow with over time.</p>
           <a href="about.html" class="text-link">Learn More →</a>
+    <section class="section panel" aria-labelledby="featured-title">
+      <h2 id="featured-title">What You Can Explore</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Reviews</h3>
+          <p>Read short and long opinions about my favorite movies and series.</p>
+          <a href="reviews.html" class="text-link">View the review list →</a>
+        </article>
+        <article class="card">
+          <h3>Media Picks</h3>
+          <p>Watch trailers, view posters, and enjoy a themed audio track.</p>
+          <a href="about.html#media" class="text-link">Go to media section →</a>
+        </article>
+        <article class="card">
+          <h3>Recommendations</h3>
+          <p>Use the improved form to suggest what I should watch next.</p>
+          <a href="about.html#recommend-form" class="text-link">Open recommendation form →</a>
         </article>
       </div>
     </section>
@@ -91,6 +121,31 @@
         </div>
         <p id="memory-message" class="feedback" aria-live="polite">Press Start Game to begin your challenge.</p>
         <div id="memory-grid" class="memory-grid" aria-label="Memory card grid"></div>
+    <section id="game" class="section panel" aria-labelledby="game-title">
+      <h2 id="game-title">Mini-Game: Rock • Paper • Scissors</h2>
+      <p class="section-intro">
+        Play against the computer. First to 5 points wins the match.
+      </p>
+
+      <div class="game-area" role="region" aria-live="polite" aria-label="Rock Paper Scissors game area">
+        <div class="scoreboard">
+          <p><strong>You:</strong> <span id="player-score">0</span></p>
+          <p><strong>Computer:</strong> <span id="computer-score">0</span></p>
+          <p><strong>Rounds:</strong> <span id="round-count">0</span></p>
+        </div>
+
+        <div class="button-row game-controls">
+          <button type="button" class="btn btn-primary game-btn" data-choice="rock">Rock</button>
+          <button type="button" class="btn btn-primary game-btn" data-choice="paper">Paper</button>
+          <button type="button" class="btn btn-primary game-btn" data-choice="scissors">Scissors</button>
+        </div>
+
+        <div class="button-row">
+          <button type="button" id="start-game" class="btn btn-secondary">Start Match</button>
+          <button type="button" id="reset-game" class="btn btn-secondary">Reset</button>
+        </div>
+
+        <p id="game-message" class="feedback">Click <strong>Start Match</strong> to begin.</p>
       </div>
     </section>
   </main>
@@ -98,6 +153,8 @@
   <footer class="site-footer">
     <p>Created by Nannapat Jaroenteerawong | 2025</p>
     <p><a href="home.html">𝐻𝑜𝓂𝑒</a> · <a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a> · <a href="about.html">𝒜𝒷𝑜𝓊𝓉</a></p>
+    <p>Made with passion for films, stories, and fun web design.</p>
+    <p><a href="reviews.html">Reviews</a> · <a href="about.html">About</a></p>
   </footer>
 
   <script src="script.js" defer></script>
