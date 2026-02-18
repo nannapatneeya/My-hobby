@@ -1,299 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Hobby – Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --blue-light: #BCD2E8;
-  --blue-mid: #91BAD6;
-  --blue-dark: #528AAE;
-  --nav-bg: #1E3F66;
-  --text-dark: #0F2033;
-  --glass-bg: rgba(255, 255, 255, 0.90);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --shadow: 0 15px 45px rgba(0,0,0,0.2);
-  --radius: 24px;
-  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  font-family:'Roboto', sans-serif;
-  color: var(--text-dark);
-  line-height:1.6;
-  min-height: 100vh;
-}
-
-body::before {
-  content:"";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: url('https://i.pinimg.com/736x/b1/5c/56/b15c56a554cdb62b8513c32a8495e231.jpg') no-repeat center center;
-  background-size: cover;
-  filter: brightness(0.5);
-}
-
-
-nav {
-  background: rgba(30, 63, 102, 0.95);
-  backdrop-filter: blur(12px);
-  padding: 1.2rem 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid var(--glass-border);
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  nav { flex-direction: row; justify-content: space-between; }
-}
-
-nav .logo {
-  font-family: 'Cinzel', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
-}
-
-nav .nav-links { display: flex; gap: 1.5rem; }
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: var(--transition);
-}
-
-
-.hero {
-  text-align: center;
-  padding: clamp(4rem, 12vw, 7rem) 1.5rem;
-  margin: 2rem auto;
-  background: linear-gradient(135deg, rgba(145, 186, 214, 0.95), rgba(82, 138, 174, 0.95));
-  backdrop-filter: blur(8px);
-  color: white;
-  border-radius: var(--radius);
-  width: 92%;
-  max-width: 1100px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--glass-border);
-}
-
-.hero h1 {
-  font-family: 'Cinzel', serif;
-  
-  font-size: clamp(2.2rem, 10vw, 3.8rem); 
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
-}
-
-.hero p {
-  font-size: clamp(1.1rem, 4vw, 1.3rem);
-  margin-bottom: 2.5rem;
-  max-width: 750px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0.95;
-}
-
-.btn-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-
-@media (min-width: 500px) {
-  .btn-group { flex-direction: row; justify-content: center; }
-}
-
-.hero button {
-  padding: 1.2rem 2.5rem;
-  font-size: 1rem;
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: var(--transition);
-  width: 100%;
-  max-width: 280px;
-}
-
-.hero .btn-primary { background: white; color: var(--nav-bg); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.hero .btn-secondary { background: var(--nav-bg); color: white; }
-
-
-.section { margin: 5rem auto; max-width: 1200px; padding: 0 4%; }
-
-.section h2 {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1.8rem, 7vw, 2.5rem);
-  margin-bottom: 3rem;
-  color: white;
-  text-align: center;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-
-.feature-cards {
-  display: grid;
-  
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-  gap: 2rem;
-}
-
-.link-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius);
-  padding: 3rem 2rem; 
-  box-shadow: var(--shadow);
-  text-align: center;
-  transition: var(--transition);
-  border: 1px solid var(--glass-border);
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-}
-
-.link-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  background: white;
-}
-
-.link-card h3 { 
-  font-family: 'Cinzel', serif;
-  font-size: 1.6rem;
-  margin-bottom: 1.2rem; 
-  color: var(--nav-bg); 
-}
-
-.link-card p { 
-  color: var(--text-dark);
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  flex-grow: 1;
-}
-
-.link-card .arrow {
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: var(--blue-dark);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-
-footer {
-  background: rgba(30, 63, 102, 0.95);
-  color: white;
-  text-align: center;
-  padding: 4rem 1rem;
-  margin-top: 5rem;
-}
-
-footer .footer-links {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-footer a { color: var(--blue-light); text-decoration: none; font-size: 1.1rem; }
-
-@media (max-width: 400px) {
-    
-    .feature-cards { grid-template-columns: 1fr; }
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Hobby | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="logo" href="home.html">My Hobby</a>
+      <ul class="nav-links">
+        <li><a href="home.html" aria-current="page">Home</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#game">Game</a></li>
+      </ul>
+    </nav>
 
-<nav>
-  <div class="logo">My Hobby</div>
-  <div class="nav-links">
-    <a href="home.html">𝐻𝑜𝓂𝑒</a>
-    <a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a>
-    <a href="about.html">𝒜𝒷𝑜𝓊𝓉</a>
-  </div>
-</nav>
+    <section class="hero panel">
+      <h1>Movie Nights Are My Favorite Hobby</h1>
+      <p>
+        Welcome to my upgraded project! Explore my review table, favorite media picks,
+        and play a mini game inspired by my love for stories.
+      </p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="reviews.html">Browse Reviews</a>
+        <a class="btn btn-secondary" href="about.html">Leave a Recommendation</a>
+      </div>
+    </section>
+  </header>
 
-<main>
-  <section class="hero">
-    <h1>Welcome to My Movie World</h1>
-    <p>Explore movies & series, find your favorites, and share your thoughts with the community.</p>
-    <div class="btn-group">
-      <button class="btn-primary" onclick="location.href='reviews.html'">My Reviews</button>
-      <button class="btn-secondary" onclick="location.href='about.html'">More About Me</button>
-    </div>
-  </section>
+  <main>
+    <section class="section panel" aria-labelledby="featured-title">
+      <h2 id="featured-title">What You Can Explore</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Reviews</h3>
+          <p>Read short and long opinions about my favorite movies and series.</p>
+          <a href="reviews.html" class="text-link">View the review list →</a>
+        </article>
+        <article class="card">
+          <h3>Media Picks</h3>
+          <p>Watch trailers, view posters, and enjoy a themed audio track.</p>
+          <a href="about.html#media" class="text-link">Go to media section →</a>
+        </article>
+        <article class="card">
+          <h3>Recommendations</h3>
+          <p>Use the improved form to suggest what I should watch next.</p>
+          <a href="about.html#recommend-form" class="text-link">Open recommendation form →</a>
+        </article>
+      </div>
+    </section>
 
-  <section class="section">
-    <h2>Why I Love Watching</h2>
-    <div class="feature-cards">
-      <a href="about.html" class="link-card">
-        <h3>Relax & Unwind</h3>
-        <p>Watching movies helps me escape and recharge after a long day.</p>
-        <span class="arrow">Learn More →</span>
-      </a>
+    <section id="game" class="section panel" aria-labelledby="game-title">
+      <h2 id="game-title">Mini-Game: Rock • Paper • Scissors</h2>
+      <p class="section-intro">
+        Play against the computer. First to 5 points wins the match.
+      </p>
 
-      <a href="about.html" class="link-card">
-        <h3>Cultural Stories</h3>
-        <p>I enjoy exploring different cultures and lifestyles through films.</p>
-        <span class="arrow">Learn More →</span>
-      </a>
+      <div class="game-area" role="region" aria-live="polite" aria-label="Rock Paper Scissors game area">
+        <div class="scoreboard">
+          <p><strong>You:</strong> <span id="player-score">0</span></p>
+          <p><strong>Computer:</strong> <span id="computer-score">0</span></p>
+          <p><strong>Rounds:</strong> <span id="round-count">0</span></p>
+        </div>
 
-      <a href="about.html" class="link-card">
-        <h3>Emotional Journey</h3>
-        <p>Stories and characters feel like friends I grow with over time.</p>
-        <span class="arrow">Learn More →</span>
-      </a>
-    </div>
-  </section>
+        <div class="button-row game-controls">
+          <button type="button" class="btn btn-primary game-btn" data-choice="rock">Rock</button>
+          <button type="button" class="btn btn-primary game-btn" data-choice="paper">Paper</button>
+          <button type="button" class="btn btn-primary game-btn" data-choice="scissors">Scissors</button>
+        </div>
 
-  <section class="section">
-    <h2>My Favorite Genres</h2>
-    <div class="feature-cards">
-      <a href="reviews.html" class="link-card">
-        <h3>Romantic Comedies</h3>
-        <p>Lighthearted stories that always lift my mood.</p>
-        <span class="arrow">View Reviews →</span>
-      </a>
-      <a href="reviews.html" class="link-card">
-        <h3>K-Dramas</h3>
-        <p>High-stakes storytelling and emotional depth.</p>
-        <span class="arrow">View Reviews →</span>
-      </a>
-      <a href="reviews.html" class="link-card">
-        <h3>Fantasy & Mystery</h3>
-        <p>Imaginative worlds that challenge the mind.</p>
-        <span class="arrow">View Reviews →</span>
-      </a>
-    </div>
-  </section>
-</main>
+        <div class="button-row">
+          <button type="button" id="start-game" class="btn btn-secondary">Start Match</button>
+          <button type="button" id="reset-game" class="btn btn-secondary">Reset</button>
+        </div>
 
-<footer>
-  <p>Created by Nannapat Jaroenteerawong | 2025</p>
-  <div class="footer-links">
-    <a href="home.html">𝐻𝑜𝓂𝑒</a>
-    <a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a>
-    <a href="about.html">𝒜𝒷𝑜𝓊𝓉</a>
-  </div>
-</footer>
+        <p id="game-message" class="feedback">Click <strong>Start Match</strong> to begin.</p>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <p>Made with passion for films, stories, and fun web design.</p>
+    <p><a href="reviews.html">Reviews</a> · <a href="about.html">About</a></p>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
