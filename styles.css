@@ -214,3 +214,46 @@ textarea:focus-visible {
   .top-nav { flex-direction: column; align-items: flex-start; }
   .poster-link { height: 340px; }
 }
+
+
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.journey-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.journey-item {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #d8e5f2;
+  border-left: 5px solid var(--blue-dark);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+.journey-item h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--nav-bg);
+  margin-bottom: 0.2rem;
+}
+
+.light-list li {
+  color: #eaf3ff;
+}
+
+.hero,
+.page-header,
+.review-card,
+.panel,
+.card {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.panel:hover,
+.card:hover {
+  box-shadow: 0 18px 50px rgba(0,0,0,0.23);
+}
