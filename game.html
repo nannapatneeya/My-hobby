@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Hobby | Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="game-page">
+  <header class="site-header compact-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="logo" href="home.html">My Hobby</a>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="game.html" aria-current="page">Game</a></li>
+      </ul>
+    </nav>
+
+    <section class="panel hero compact-hero">
+      <h1>Movie Memory Match Arena</h1>
+      <p>Practice mode in a focused full-screen section. You can also play this game directly on the Home page.</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="section panel" aria-labelledby="game-title">
+      <h2 id="game-title">Mini-Game Challenge</h2>
+      <div class="game-area" role="region" aria-live="polite" aria-label="Memory game area">
+        <div class="scoreboard">
+          <p><strong>Time:</strong> <span id="memory-time">45</span>s</p>
+          <p><strong>Moves:</strong> <span id="memory-moves">0</span></p>
+          <p><strong>Matches:</strong> <span id="memory-matches">0</span>/8</p>
+          <p><strong>Best:</strong> <span id="memory-best">--</span></p>
+        </div>
+
+        <div class="button-row">
+          <button type="button" id="memory-start" class="btn btn-primary">Start Game</button>
+          <button type="button" id="memory-reset" class="btn btn-secondary">Reset</button>
+        </div>
+
+        <p id="memory-message" class="feedback">Press Start Game to begin.</p>
+        <div id="memory-grid" class="memory-grid"></div>
+      </div>
+    </section>
+
+    <section class="section panel" aria-labelledby="tips-title">
+      <h2 id="tips-title">How to Win Faster</h2>
+      <ul class="info-list light-list">
+        <li>Open cards from left to right first to build a memory map.</li>
+        <li>Try to remember second-card positions before making random guesses.</li>
+        <li>Finish in fewer moves to beat your stored best score.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Good luck and have fun!</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

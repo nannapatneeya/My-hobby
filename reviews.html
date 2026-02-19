@@ -3,271 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Movie Reviews</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --blue-light: #BCD2E8;
-  --blue-mid: #91BAD6;
-  --blue-dark: #528AAE;
-  --nav-bg: #1E3F66; 
-  --text-dark: #0F2033;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.3);
-  --shadow: 0 12px 40px rgba(0,0,0,0.15);
-  --radius: 20px;
-  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  font-family:'Roboto', sans-serif;
-  color: var(--text-dark);
-  line-height:1.6;
-  min-height: 100vh;
-}
-
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background: url('https://i.pinimg.com/1200x/80/5f/76/805f76689aa8612fb2c786bfcda09c6e.jpg') no-repeat center center fixed;
-  background-size: cover;
-  filter: brightness(0.7);
-}
-
-
-nav {
-  background: rgba(30, 63, 102, 0.9);
-  backdrop-filter: blur(10px);
-  padding:1.2rem 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  border-bottom: 1px solid var(--glass-border);
-}
-
-nav .logo {
-  font-family:'Cinzel', serif;
-  font-size:1.8rem;
-  font-weight: 700;
-  color:white;
-}
-
-nav div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-nav a {
-  color: rgba(255,255,255,0.8);
-  text-decoration:none;
-  margin-left:2rem;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-nav a:hover { color: white; transform: translateY(-2px); }
-
-
-.page-header {
-  max-width:1100px;
-  margin:4rem auto 2rem;
-  padding:5rem 2rem;
-  background: linear-gradient(135deg, rgba(145, 186, 214, 0.9), rgba(82, 138, 174, 0.9));
-  backdrop-filter: blur(5px);
-  color:white;
-  text-align:center;
-  border-radius:var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--glass-border);
-  width: 90%; 
-}
-
-.page-header h1 {
-  font-family:'Cinzel', serif;
-  font-size:3.2rem;
-  margin-bottom:1rem;
-}
-
-
-.review-container {
-  display: grid;
-  
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.review-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--glass-border);
-}
-
-.poster-link {
-  display: block;
-  width: 100%;
-  height: 450px;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none;
-}
-
-.poster-link img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.poster-link::after {
-  content: "▶ Watch Teaser";
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(30, 63, 102, 0.8);
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 50px;
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
-  opacity: 0;
-  transition: var(--transition);
-}
-
-.review-card:hover .poster-link img {
-  transform: scale(1.1);
-}
-
-.review-card:hover .poster-link::after {
-  opacity: 1;
-}
-
-.review-content {
-  padding: 1.5rem;
-  flex:1;
-  display:flex;
-  flex-direction: column;
-}
-
-.review-content h3 {
-  font-family:'Cinzel', serif;
-  font-size:1.6rem;
-  color: var(--nav-bg);
-  margin-bottom: 0.7rem;
-}
-
-.full-review {
-  border-top: 1px solid rgba(0,0,0,0.1);
-  padding-top: 1rem;
-  margin-top: 0.5rem;
-  font-style: italic;
-  color: #555;
-}
-
-.read-more {
-  background: var(--nav-bg);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
-  cursor: pointer;
-  align-self: start;
-  margin-top: auto;
-  transition: var(--transition);
-}
-
-.read-more:hover { background: var(--blue-dark); transform: scale(1.05); }
-
-
-footer {
-  background: rgba(30, 63, 102, 0.8);
-  backdrop-filter: blur(10px);
-  color:white;
-  text-align:center;
-  padding:3rem 1rem;
-  margin-top:4rem;
-}
-
-footer a {
-  color:var(--blue-light);
-  text-decoration: none;
-  margin:0 .5rem;
-}
-
-  
-
-
-@media (max-width: 992px) {
-  .page-header { padding: 3rem 1.5rem; margin-top: 2rem; }
-  .page-header h1 { font-size: 2.5rem; }
-}
-
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column; 
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  nav a {
-    margin: 0.5rem 1rem; 
-  }
-
-  .page-header h1 { font-size: 2rem; }
-  
-  .poster-link {
-    height: 350px; 
-  }
-
-  .review-container {
-    gap: 1.5rem;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .page-header h1 { font-size: 1.6rem; }
-  .page-header p { font-size: 0.9rem; }
-  
-  .review-content h3 { font-size: 1.4rem; }
-  
-  .read-more {
-    width: 100%; 
-    text-align: center;
-  }
-}
-</style>
+<title>My Favorite Movies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="reviews-page">
 
-<nav>
-  <div class="logo">My Hobby</div>
-  <div>
-   <a href="home.html">𝐻𝑜𝓂𝑒</a>
-        <a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a>
-        <a href="about.html">𝒜𝒷𝑜𝓾𝓉</a>
-  </div>
+<nav class="top-nav" aria-label="Main navigation">
+  <a class="logo" href="home.html">My Hobby</a>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="reviews.html" aria-current="page">Reviews</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="game.html">Game</a></li>
+  </ul>
 </nav>
 
 <header class="page-header">
@@ -278,7 +29,7 @@ footer a {
 <div class="review-container">
 
   <div class="review-card">
-    <a href="https://youtu.be/ozzqPJ4QPjY?si=bIDO93oYv-ThvLFg" target="_blank" class="poster-link">
+    <a href="https://youtu.be/ozzqPJ4QPjY?si=bIDO93oYv-ThvLFg" target="_blank" class="poster-link" rel="noopener">
       <img src="https://i.pinimg.com/736x/38/d3/2c/38d32c172d525e03932af594503e2bec.jpg" alt="The Best thing">
     </a>
     <div class="review-content">
@@ -290,7 +41,7 @@ footer a {
   </div>
 
   <div class="review-card">
-    <a href="https://www.youtube.com/watch?v=VyHV0BRtdxo" target="_blank" class="poster-link">
+    <a href="https://www.youtube.com/watch?v=VyHV0BRtdxo" target="_blank" class="poster-link" rel="noopener">
       <img src="https://i.pinimg.com/1200x/72/35/7c/72357ca6662af8f4ebaf764661858f44.jpg" alt="Harry potter">
     </a>
     <div class="review-content">
@@ -302,7 +53,7 @@ footer a {
   </div>
 
   <div class="review-card">
-    <a href="https://youtu.be/M-PHcxPyasA?si=MPd_yaAmJOb9R8_G" target="_blank" class="poster-link">
+    <a href="https://youtu.be/M-PHcxPyasA?si=MPd_yaAmJOb9R8_G" target="_blank" class="poster-link" rel="noopener">
       <img src="https://i.pinimg.com/736x/57/82/26/5782267615795968f78e3727bb705ae7.jpg" alt="Business Proposal">
     </a>
     <div class="review-content">
@@ -314,7 +65,7 @@ footer a {
   </div>
 
   <div class="review-card">
-    <a href="https://www.youtube.com/watch?v=6ZOZwUQKu3E" target="_blank" class="poster-link">
+    <a href="https://www.youtube.com/watch?v=6ZOZwUQKu3E" target="_blank" class="poster-link" rel="noopener">
       <img src="https://i.pinimg.com/1200x/f5/da/ac/f5daaceac2ab215b32c96c8bd3edd337.jpg" alt="Devil Wears Prada">
     </a>
     <div class="review-content">
@@ -326,7 +77,7 @@ footer a {
   </div>
 
   <div class="review-card">
-    <a href="https://youtu.be/am6kaxykZlE?si=I5sJzAXLl7DKPYmF" target="_blank" class="poster-link">
+    <a href="https://youtu.be/am6kaxykZlE?si=I5sJzAXLl7DKPYmF" target="_blank" class="poster-link" rel="noopener">
       <img src="https://i.pinimg.com/736x/3b/19/36/3b19369d59c6a5be00aea04c789fb703.jpg" alt="First Frost">
     </a>
     <div class="review-content">
@@ -338,7 +89,7 @@ footer a {
   </div>
 
   <div class="review-card">
-    <a href="https://youtu.be/H1vplUsGDoI?si=bQbEY06zSm0xYFBg" target="_blank" class="poster-link">
+    <a href="https://youtu.be/H1vplUsGDoI?si=bQbEY06zSm0xYFBg" target="_blank" class="poster-link" rel="noopener">
       <img src="https://i.pinimg.com/736x/ba/46/84/ba46845241cb8db895f8dddb94f6bd3d.jpg" alt="Mr Queen">
     </a>
     <div class="review-content">
@@ -351,30 +102,35 @@ footer a {
 
 </div>
 
-<footer>
+<section class="section panel" aria-labelledby="review-extra-title">
+  <h2 id="review-extra-title">Review Insights</h2>
+  <div class="insight-grid">
+    <article class="card">
+      <h3>Favorite Themes</h3>
+      <p>Comfort, growth, friendship, and humor appear in almost all of my top picks.</p>
+    </article>
+    <article class="card">
+      <h3>Rewatch Score</h3>
+      <p>Most titles here are movies/series I can rewatch many times without getting bored.</p>
+    </article>
+    <article class="card">
+      <h3>Next Review Update</h3>
+      <p>I’ll add one audience recommendation every month to keep this page fresh.</p>
+    </article>
+  </div>
+</section>
+
+
+<footer class="site-footer">
   <p>Created by Nannapat Jaroenteerawong | 2025</p>
   <p>
     <a href="home.html">Home</a> |
     <a href="reviews.html">Reviews</a> |
-    <a href="about.html">About</a>
+    <a href="about.html">About</a> |
+    <a href="game.html">Game</a>
   </p>
 </footer>
 
-<script>
-  const buttons = document.querySelectorAll('.read-more');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const fullReview = button.previousElementSibling;
-      if(fullReview.style.display === 'none' || fullReview.style.display === '') {
-        fullReview.style.display = 'block';
-        button.textContent = 'Show Less';
-      } else {
-        fullReview.style.display = 'none';
-        button.textContent = 'Read More';
-      }
-    });
-  });
-</script>
-
+<script src="script.js" defer></script>
 </body>
 </html>
