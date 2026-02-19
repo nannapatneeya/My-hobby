@@ -1,397 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Hobby – About</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --blue-light: #BCD2E8;
-            --blue-mid: #91BAD6;
-            --blue-dark: #528AAE;
-            --nav-bg: #1E3F66;
-            --text-dark: #0F2033;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.4);
-            --shadow: 0 12px 40px rgba(0,0,0,0.15);
-            --radius: 24px;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        
-        * { margin:0; padding:0; box-sizing:border-box; }
-
-        body {
-            font-family:'Roboto', sans-serif;
-            min-height:100vh;
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content:"";
-            position:fixed;
-            inset:0;
-            z-index:-1;
-            background:url('https://i.pinimg.com/736x/85/df/51/85df51d75e9d0ed5b02229a37e86c8e2.jpg') no-repeat center/cover;
-            filter: brightness(0.6);
-        }
-
-        
-        nav {
-            background: rgba(30, 63, 102, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
-            gap: 0.8rem;
-        }
-
-        @media (min-width: 768px) {
-            nav { flex-direction: row; justify-content: space-between; }
-        }
-
-        nav .logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        nav .nav-links { display: flex; gap: 1.2rem; }
-        nav a { color: white; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-
-        
-        .page-header {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: clamp(3rem, 10vw, 5rem) 1.5rem;
-            background: linear-gradient(135deg, rgba(145, 186, 214, 0.9), rgba(82, 138, 174, 0.9));
-            backdrop-filter: blur(5px);
-            color: white;
-            text-align: center;
-            border-radius: var(--radius);
-            width: 92%;
-        }
-
-        .page-header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(2rem, 8vw, 3.2rem);
-            margin-bottom: 1rem;
-        }
-
-        .page-header p {
-            font-size: clamp(1rem, 4vw, 1.2rem);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        
-        .dashboard {
-            max-width: 1100px;
-            margin: 0 auto 4rem;
-            padding: 0 4%;
-            display: grid;
-            
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .widget {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border-radius: var(--radius);
-            padding: 2.5rem 1.5rem;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid var(--glass-border);
-            height: 100%;
-        }
-
-        .widget:hover { transform: translateY(-8px); background: white; }
-        .icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
-        .widget h3 { font-family: 'Cinzel', serif; color: var(--nav-bg); margin-bottom: 0.5rem; }
-        .widget-value { font-size: 1.8rem; font-weight: 700; color: var(--blue-dark); }
-
-        
-        .widget-large {
-            grid-column: 1 / -1; 
-            background: linear-gradient(135deg, #1E3F66 0%, #528AAE 100%) !important;
-            color: white !important;
-            text-align: left;
-            padding: clamp(2rem, 5vw, 3.5rem);
-        }
-
-        @media (min-width: 900px) {
-            .widget-large { grid-column: span 2; }
-        }
-
-        .widget-large h3 { color: white !important; font-size: 1.8rem; }
-        .list-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1rem;
-            border-radius: 12px;
-            margin-top: 0.8rem;
-            border-left: 4px solid var(--blue-light);
-        }
-
-        
-        .table-card {
-            grid-column: 1 / -1;
-            padding: clamp(1.5rem, 5vw, 3rem);
-            overflow: hidden;
-        }
-
-        .table-container {
-            width: 100%;
-            overflow-x: auto; 
-            margin-top: 1.5rem;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .platform-table {
-            width: 100%;
-            min-width: 500px; 
-            border-collapse: separate;
-            border-spacing: 0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .platform-table th {
-            background: var(--nav-bg);
-            color: white;
-            padding: 1.2rem;
-            font-size: 0.85rem;
-        }
-
-        .platform-table td {
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.6);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .platform-table img { width: 60px; }
-
-        
-        .recommend-card {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, #1E3F66 0%, #528AAE 100%) !important;
-            color: white !important;
-            padding: clamp(2rem, 5vw, 3.5rem);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.2rem;
-            margin-top: 2rem;
-            text-align: left;
-        }
-
-        @media (min-width: 600px) {
-            .form-grid { grid-template-columns: 1fr 1fr; }
-            .form-group-full { grid-column: span 2; }
-        }
-
-        .recommend-card label {
-            display: block;
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--blue-light);
-        }
-
-        .recommend-card input, .recommend-card select, .recommend-card textarea {
-            width: 100%;
-            padding: 1rem;
-            border-radius: 12px;
-            border: none;
-            background: white;
-            font-size: 1rem;
-        }
-
-        .submit-btn {
-            background: white;
-            color: var(--nav-bg);
-            padding: 1.2rem;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .submit-btn:hover { background: var(--blue-light); transform: scale(1.02); }
-
-        
-        footer {
-            background: rgba(30, 63, 102, 0.95);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-
-        footer .footer-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
-        footer a { color: var(--blue-light); text-decoration: none; }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Hobby | About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+<body class="about-page">
+  <header class="site-header compact-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="logo" href="home.html">My Hobby</a>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="game.html">Game</a></li>
+      </ul>
+    </nav>
 
-<body>
+    <section class="panel hero compact-hero">
+      <h1>About This Hobby Project</h1>
+      <p>I love stories that are cozy, magical, and easy to rewatch.</p>
+    </section>
+  </header>
 
-<nav>
-    <div class="logo">My Hobby</div>
-    <div class="nav-links">
-        <a href="home.html">𝐻𝑜𝓂𝑒</a>
-        <a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a>
-        <a href="about.html">𝒜𝒷𝑜𝓾𝓉</a>
-    </div>
-</nav>
+  <main>
+    <section id="media" class="section panel" aria-labelledby="media-title">
+      <h2 id="media-title">Multimedia Corner</h2>
+      <div class="media-layout">
+        <figure class="media-block">
+          <img src="https://i.pinimg.com/736x/38/d3/2c/38d32c172d525e03932af594503e2bec.jpg" alt="Poster artwork for The Best Thing">
+          <figcaption>One of my latest comfort series posters.</figcaption>
+        </figure>
 
-<section class="page-header">
-    <h1>About My Movie Hobby</h1>
-    <p>Movies and series are more than entertainment — they are comfort, inspiration, and a way to explore different emotions and cultures.</p>
-</section>
+        <figure class="media-block">
+          <iframe
+            src="https://www.youtube.com/embed/VyHV0BRtdxo"
+            title="Harry Potter trailer"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <figcaption>Trailer clip: a classic favorite I can rewatch endlessly.</figcaption>
+        </figure>
 
-<div class="dashboard">
+        <figure class="media-block">
+          <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <figcaption>Background listening while I write reviews (sample royalty-free audio).</figcaption>
+        </figure>
+      </div>
+    </section>
 
-    <div class="widget">
-        <div class="icon">🎬</div>
-        <h3>My Hobby</h3>
-        <div class="widget-value">Movies</div>
-        <p>Watching movies helps me relax and enjoy my free time.</p>
-    </div>
-
-    <div class="widget">
-        <div class="icon">🌙</div>
-        <h3>Best Time</h3>
-        <div class="widget-value">Evening</div>
-        <p>I enjoy watching movies at night after a long day.</p>
-    </div>
-
-    <div class="widget">
-        <div class="icon">💙</div>
-        <h3>Favorite Genre</h3>
-        <div class="widget-value">Romcom</div>
-        <p>Romantic and comedy stories are my favorite.</p>
-    </div>
-
-    <div class="widget widget-large">
-        <h3>Why I Love Watching Movies</h3>
-        <p>Movies help me relax, understand emotions, and escape stress.</p>
-        <div class="list">
-            <div class="list-item">Emotional connection and storytelling</div>
-            <div class="list-item">Exploring different cultures and perspectives</div>
-            <div class="list-item">Finding daily comfort and inspiration</div>
+    <section id="recommend-form" class="section panel" aria-labelledby="form-title">
+      <h2 id="form-title">Recommend Something to Watch</h2>
+      <form class="recommend-form" novalidate>
+        <div class="form-row">
+          <label for="name">Your Name</label>
+          <input id="name" name="name" type="text" placeholder="e.g., Alex" required minlength="2">
         </div>
-    </div>
 
-    <div class="widget">
-        <div class="icon">🍿</div>
-        <h3>Best Experience</h3>
-        <div class="widget-value">Comfort</div>
-        <p>A quiet place and good subtitles make it better.</p>
-    </div>
-
-    <div class="widget table-card">
-        <h3>Streaming Platforms</h3>
-        <div class="table-container">
-            <table class="platform-table">
-                <thead>
-                    <tr>
-                        <th>Platform</th>
-                        <th>Logo</th>
-                        <th>What I Watch</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Netflix</strong></td>
-                        <td><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix"></td>
-                        <td>Movies & International Series</td>
-                    </tr>
-                    <tr>
-                        <td><strong>iQIYI</strong></td>
-                        <td><img src="https://www.ais.th/content/ais/th/en_us/consumers/entertainment/streaming-app/iqiyi/_jcr_content/root/container_1816311984/aiscontainer/columncontrol_copy_c/content1/image.coreimg.svg/1688975099713/logo-iqiyi.svg" alt="iQIYI"></td>
-                        <td>C-dramas & Asian Variety</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Viu</strong></td>
-                        <td><img src="https://www.ais.th/content/ais/th/th_th/consumers/entertainment/streaming-app/viu/_jcr_content/root/container_1816311984/aiscontainer/columncontrol_copy_c/content1/image.coreimg.svg/1742182312179/logo-viu.svg" alt="Viu"></td>
-                        <td>Latest K-dramas</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="form-row">
+          <label for="title">Movie/Series Title</label>
+          <input id="title" name="title" type="text" placeholder="What should I watch next?" required>
         </div>
-    </div>
 
-    <div class="widget recommend-card">
-        <div class="icon">✉️</div>
-        <h3>Your Recommendations</h3>
-        <p>What should I watch next? Share your favorite romcoms or dramas!</p>
-        
-        <form id="recommend-form">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="title">Movie/Series Title</label>
-                    <input type="text" id="title" placeholder="e.g. Hometown Cha-Cha-Cha" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="type">Category</label>
-                    <select id="type">
-                        <option value="movie">Movie</option>
-                        <option value="cdrama">C-Drama</option>
-                        <option value="kdrama">K-Drama</option>
-                        <option value="series">International Series</option>
-                    </select>
-                </div>
-                
-                <div class="form-group-full">
-                    <label for="reason">Why do you recommend it?</label>
-                    <textarea id="reason" rows="4" placeholder="Tell me about the story..."></textarea>
-                </div>
-            </div>
-            
-            <button type="submit" class="submit-btn">Send Recommendation</button>
-        </form>
-        
-        <div id="thank-you-msg" style="display:none; margin-top: 2rem;">
-            <h3>Thank you!</h3>
-            <p>I've received your recommendation and added it to my list.</p>
+        <div class="form-row">
+          <label for="genre">Genre</label>
+          <select id="genre" name="genre" required>
+            <option value="">Choose one...</option>
+            <option>Fantasy</option>
+            <option>Romcom</option>
+            <option>Drama</option>
+            <option>Thriller</option>
+            <option>Comedy</option>
+          </select>
         </div>
-    </div>
-</div>
 
-<footer>
-    <p>Created by Nannapat Jaroenteerawong | 2025</p>
-    <div class="footer-links">
-        <a href="home.html">𝐻𝑜𝓂𝑒</a>
-        <a href="reviews.html">𝑅𝑒𝓋𝒾𝑒𝓌𝓈</a>
-        <a href="about.html">𝒜𝒷𝑜𝓾𝓉</a>
-    </div>
-</footer>
+        <div class="form-row">
+          <label for="score">How strong is your recommendation? (1-10)</label>
+          <input id="score" name="score" type="number" min="1" max="10" placeholder="10" required>
+        </div>
 
-<script>
-    document.getElementById('recommend-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        this.style.display = 'none';
-        document.getElementById('thank-you-msg').style.display = 'block';
-    });
-</script>
+        <div class="form-row">
+          <label for="reason">Why should I watch it?</label>
+          <textarea id="reason" name="reason" rows="4" placeholder="Tell me what makes it special..." required></textarea>
+        </div>
 
+        <button type="submit" class="btn btn-primary">Submit Recommendation</button>
+        <p id="form-feedback" class="feedback" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Thanks for sharing your recommendations!</p>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
