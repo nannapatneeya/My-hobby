@@ -17,15 +17,15 @@
         <li><a href="home.html" aria-current="page">Home</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="game.html">Game</a></li>
+        <li><a href="#game">Game</a></li>
       </ul>
     </nav>
 
     <section class="hero panel">
       <h1>Movie Nights Are My Favorite Hobby</h1>
       <p>
-        Welcome to my upgraded project! Explore my review table, favorite media picks,
-        and play a mini game inspired by my love for stories.
+        Welcome to my upgraded project! Explore reviews, a multimedia gallery, a recommendation form,
+        and my interactive mini-game.
       </p>
       <div class="button-row">
         <a class="btn btn-primary" href="reviews.html">Browse Reviews</a>
@@ -36,38 +36,58 @@
 
   <main>
     <section class="section panel" aria-labelledby="featured-title">
-      <h2 id="featured-title">What You Can Explore</h2>
+      <h2 id="featured-title">Project Overview</h2>
       <div class="card-grid">
         <article class="card">
-          <h3>Reviews</h3>
-          <p>Read short and long opinions about my favorite movies and series.</p>
-          <a href="reviews.html" class="text-link">View the review list →</a>
+          <h3>Clean Structure</h3>
+          <p>Built with semantic HTML sections and accessible navigation for better readability.</p>
         </article>
         <article class="card">
-          <h3>Media Picks</h3>
-          <p>Watch trailers, view posters, and enjoy a themed audio track.</p>
-          <a href="about.html#media" class="text-link">Go to media section →</a>
+          <h3>Tables, Forms & Media</h3>
+          <p>Includes styled review tables, validated forms, and image/video/audio elements with captions.</p>
         </article>
         <article class="card">
-          <h3>Recommendations</h3>
-          <p>Use the improved form to suggest what I should watch next.</p>
-          <a href="about.html#recommend-form" class="text-link">Open recommendation form →</a>
+          <h3>Interactive JavaScript</h3>
+          <p>Play a Memory Match game with score state, timer feedback, and reset controls.</p>
         </article>
       </div>
     </section>
 
-    <section class="section panel" aria-labelledby="play-title">
-      <h2 id="play-title">Play the Mini-Game</h2>
-      <p class="section-intro">I moved the game to its own page so this home page stays clean.</p>
-      <div class="button-row">
-        <a class="btn btn-primary" href="game.html">Play Game</a>
+    <section class="section panel" aria-labelledby="more-info-title">
+      <h2 id="more-info-title">Why This Version Is Better</h2>
+      <ul class="info-list">
+        <li>Improved spacing, card hierarchy, focus outlines, and mobile responsive behavior.</li>
+        <li>Background pictures are preserved on every page and blended with glassmorphism styling.</li>
+        <li>Navigation includes a clear Game link and consistent design between all pages.</li>
+      </ul>
+    </section>
+
+    <section id="game" class="section panel" aria-labelledby="game-title">
+      <h2 id="game-title">Mini-Game: Movie Memory Match</h2>
+      <p class="section-intro">Match all movie icons in 45 seconds. Lower moves = better score.</p>
+      <div class="game-area" role="region" aria-live="polite" aria-label="Memory game area">
+        <div class="scoreboard">
+          <p><strong>Time:</strong> <span id="memory-time">45</span>s</p>
+          <p><strong>Moves:</strong> <span id="memory-moves">0</span></p>
+          <p><strong>Matches:</strong> <span id="memory-matches">0</span>/8</p>
+          <p><strong>Best:</strong> <span id="memory-best">--</span></p>
+        </div>
+
+        <div class="button-row">
+          <button type="button" id="memory-start" class="btn btn-primary">Start Game</button>
+          <button type="button" id="memory-reset" class="btn btn-secondary">Reset</button>
+          <a class="btn btn-secondary" href="game.html">Open Full Game Page</a>
+        </div>
+
+        <p id="memory-message" class="feedback">Press Start Game to begin.</p>
+        <div id="memory-grid" class="memory-grid" aria-label="Memory card grid"></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>Made with passion for films, stories, and fun web design.</p>
-    <p><a href="reviews.html">Reviews</a> · <a href="about.html">About</a> · <a href="game.html">Game</a></p>
+    <p><a href="reviews.html">Reviews</a> · <a href="about.html">About</a> · <a href="#game">Game</a></p>
   </footer>
 
   <script src="script.js" defer></script>
