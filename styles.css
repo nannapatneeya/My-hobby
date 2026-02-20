@@ -257,3 +257,27 @@ textarea:focus-visible {
 .card:hover {
   box-shadow: 0 18px 50px rgba(0,0,0,0.23);
 }
+
+.compact-table {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  padding: 0.6rem;
+}
+
+.compact-table table {
+  min-width: 520px;
+}
+
+.card h3,
+.review-content h3,
+.journey-item h3 {
+  letter-spacing: 0.3px;
+}
+
+.site-footer {
+  background: rgba(30, 63, 102, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  max-width: 1100px;
+  margin-inline: auto;
+}
